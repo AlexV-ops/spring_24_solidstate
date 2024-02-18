@@ -31,5 +31,5 @@ Possible virtual machine monitors (VMM):
 6. No solution found, after 3 attempts. Throttling RAM usage of VMWare doesn't seem to work; I have 8 GB of RAM in total on my hard drive, of which I devoted 4 to the virtual machine. This ended up being a runaway process, which inevitably crashed both the virtual machine and my actual device. After being warned that my hard drive itself was at risk of corruption, I terminated the virtual machine and cleaned up my drive. 
 
 #### Next Steps
-I have procured a spare Windows 10 machine, and am following the recorded advice fore how to use PCD (as uploaded on Teams). I still have both UTM and VMWare on my laptop, but given that I seem to have an insurmountable hardware limitation I'm abandoning virtualization, at least for now. I am working on uploading proof of CIF file extraction by EOD (02/18/24).
+I have procured a spare Windows 10 machine, and am following the recorded advice for how to use PCD (as uploaded on Teams). I still have both UTM and VMWare on my laptop, but given that I seem to have an insurmountable hardware limitation I'm abandoning virtualization, at least for now. I am working on uploading proof of CIF file extraction by EOD (02/18/24).
 
