@@ -1,5 +1,5 @@
 Between Friday 02/16/24 and Sunday 02/18/24, I attempted to virtualize Windows 11 on my personal device, a 2020 M1 MacBook Air, in order to run [Pearson's Crystal Data](https://www.crystalimpact.com/pcd/), which is Windows-exclusive. Multiple attempts failed, and I've resorted to using a different device altogether moving forward. A description of failures and next steps is below. 
-### Dual-booting Windows 11 and Windows 11 Enterprise
+### Virtualizing Windows 11 and Windows 11 Enterprise
 
 Possible virtual machine monitors (VMM):
 * UTM -  ([UTM Documentation](https://docs.getutm.app/settings-apple/boot/)) - open source, used previously for Linux distribution virtualization for a different project (on different device)
