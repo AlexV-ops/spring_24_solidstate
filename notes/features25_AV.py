@@ -30,21 +30,21 @@ def compute_features(composition):
     df2 = pd.DataFrame(Composition2, columns=['Stoichiometry_A', 'Stoichiometry_B'])
     main_df = pd.concat([df1, df2], axis=1)
     
-    main_df['Zunger radius sum']  = main_df['A'].map(NewElem.set_index('Symbol')['zunger radii sum']) + main_df['B'].map(NewElem.set_index('Symbol')['zunger radii sum'])
-    main_df['Mean Zunger radius sum'] = (main_df['A'].map(NewElem.set_index('Symbol')['zunger radii sum']) + main_df['B'].map(NewElem.set_index('Symbol')['zunger radii sum']))/2
-    main_df['Zunger radius sum ratio'] = (main_df['A'].map(NewElem.set_index('Symbol')['zunger radii sum']) / main_df['B'].map(NewElem.set_index('Symbol')['zunger radii sum'])) #red
-    main_df['2 x Zunger radius sum difference'] = 2 * (main_df['A'].map(NewElem.set_index('Symbol')['zunger radii sum']) - main_df['B'].map(NewElem.set_index('Symbol')['zunger radii sum'])) #red
-    main_df['Zunger radius sum difference'] = main_df['A'].map(NewElem.set_index('Symbol')['zunger radii sum']) - main_df['B'].map(NewElem.set_index('Symbol')['zunger radii sum'])
+    main_df['Zunger radius sum']  = main_df['A'].map(NewElem.set_index('Symbol')['zungerradiisum']) + main_df['B'].map(NewElem.set_index('Symbol')['zungerradiisum'])
+    main_df['Mean Zunger radius sum'] = (main_df['A'].map(NewElem.set_index('Symbol')['zungerradiisum']) + main_df['B'].map(NewElem.set_index('Symbol')['zungerradiisum']))/2
+    main_df['Zunger radius sum ratio'] = (main_df['A'].map(NewElem.set_index('Symbol')['zungerradiisum']) / main_df['B'].map(NewElem.set_index('Symbol')['zungerradiisum'])) #red
+    main_df['2 x Zunger radius sum difference'] = 2 * (main_df['A'].map(NewElem.set_index('Symbol')['zungerradiisum']) - main_df['B'].map(NewElem.set_index('Symbol')['zungerradiisum'])) #red
+    main_df['Zunger radius sum difference'] = main_df['A'].map(NewElem.set_index('Symbol')['zungerradiisum']) - main_df['B'].map(NewElem.set_index('Symbol')['zungerradiisum'])
     
-    main_df['Ionic radius sum'] = main_df['A'].map(NewElem.set_index('Symbol')['ionic radius']) + main_df['B'].map(NewElem.set_index('Symbol')['ionic radius'])
-    main_df['Mean ionic radius'] = (main_df['A'].map(NewElem.set_index('Symbol')['ionic radius']) + main_df['B'].map(NewElem.set_index('Symbol')['ionic radius']))/2
-    main_df['Ionic radius ratio'] = (main_df['A'].map(NewElem.set_index('Symbol')['ionic radius']) / main_df['B'].map(NewElem.set_index('Symbol')['ionic radius'])) #red
-    main_df['2 x Ionic radius difference'] = 2 * (main_df['A'].map(NewElem.set_index('Symbol')['ionic radius']) - main_df['B'].map(NewElem.set_index('Symbol')['ionic radius'])) #red
+    main_df['Ionic radius sum'] = main_df['A'].map(NewElem.set_index('Symbol')['ionicradius']) + main_df['B'].map(NewElem.set_index('Symbol')['ionicradius'])
+    main_df['Mean ionic radius'] = (main_df['A'].map(NewElem.set_index('Symbol')['ionicradius']) + main_df['B'].map(NewElem.set_index('Symbol')['ionicradius']))/2
+    main_df['Ionic radius ratio'] = (main_df['A'].map(NewElem.set_index('Symbol')['ionicradius']) / main_df['B'].map(NewElem.set_index('Symbol')['ionicradius'])) #red
+    main_df['2 x Ionic radius difference'] = 2 * (main_df['A'].map(NewElem.set_index('Symbol')['ionicradius']) - main_df['B'].map(NewElem.set_index('Symbol')['ionicradius'])) #red
     
-    main_df['Crystal radius sum'] = main_df['A'].map(NewElem.set_index('Symbol')['crystal radius']) + main_df['B'].map(NewElem.set_index('Symbol')['crystal radius']) #blue
-    main_df['Mean crystal radius'] = (main_df['A'].map(NewElem.set_index('Symbol')['crystal radius']) + main_df['B'].map(NewElem.set_index('Symbol')['crystal radius']))/2
-    main_df['Crystal radius ratio'] = (main_df['A'].map(NewElem.set_index('Symbol')['crystal radius']) / main_df['B'].map(NewElem.set_index('Symbol')['crystal radius'])) #blue
-    main_df['2 x Crystal radius difference'] = 2 * (main_df['A'].map(NewElem.set_index('Symbol')['crystal radius']) - main_df['B'].map(NewElem.set_index('Symbol')['crystal radius'])) #blue
+    main_df['Crystal radius sum'] = main_df['A'].map(NewElem.set_index('Symbol')['crystalradius']) + main_df['B'].map(NewElem.set_index('Symbol')['crystalradius']) #blue
+    main_df['Mean crystal radius'] = (main_df['A'].map(NewElem.set_index('Symbol')['crystalradius']) + main_df['B'].map(NewElem.set_index('Symbol')['crystalradius']))/2
+    main_df['Crystal radius ratio'] = (main_df['A'].map(NewElem.set_index('Symbol')['crystalradius']) / main_df['B'].map(NewElem.set_index('Symbol')['crystalradius'])) #blue
+    main_df['2 x Crystal radius difference'] = 2 * (main_df['A'].map(NewElem.set_index('Symbol')['crystalradius']) - main_df['B'].map(NewElem.set_index('Symbol')['crystalradius'])) #blue
     
     main_df['Period number sum'] = main_df['A'].map(NewElem.set_index('Symbol')['Period']) + main_df['B'].map(NewElem.set_index('Symbol')['Period'])
     main_df['Mean period number'] = (main_df['A'].map(NewElem.set_index('Symbol')['Period']) + main_df['B'].map(NewElem.set_index('Symbol')['Period']))/2
@@ -58,9 +58,9 @@ def compute_features(composition):
     main_df['Mean family number'] = (main_df['A'].map(NewElem.set_index('Symbol')['families']) + main_df['B'].map(NewElem.set_index('Symbol')['families']))/2
     main_df['Family number difference'] = main_df['A'].map(NewElem.set_index('Symbol')['families']) - main_df['B'].map(NewElem.set_index('Symbol')['families'])
     
-    main_df['Quantum number (l) sum'] = main_df['A'].map(NewElem.set_index('Symbol')['l quantum number']) + main_df['B'].map(NewElem.set_index('Symbol')['l quantum number'])#blue
-    main_df['Mean quantum number (l) mean'] = (main_df['A'].map(NewElem.set_index('Symbol')['l quantum number']) + main_df['B'].map(NewElem.set_index('Symbol')['l quantum number']))/2
-    main_df['Quantum number (l) difference'] = main_df['A'].map(NewElem.set_index('Symbol')['l quantum number']) - main_df['B'].map(NewElem.set_index('Symbol')['l quantum number']) #blue
+    main_df['Quantum number (l) sum'] = main_df['A'].map(NewElem.set_index('Symbol')['lquantumnumber']) + main_df['B'].map(NewElem.set_index('Symbol')['lquantumnumber'])#blue
+    main_df['Mean quantum number (l) mean'] = (main_df['A'].map(NewElem.set_index('Symbol')['lquantumnumber']) + main_df['B'].map(NewElem.set_index('Symbol')['lquantumnumber']))/2
+    main_df['Quantum number (l) difference'] = main_df['A'].map(NewElem.set_index('Symbol')['lquantumnumber']) - main_df['B'].map(NewElem.set_index('Symbol')['lquantumnumber']) #blue
     
     return main_df
     
