@@ -13,9 +13,29 @@ def reorder_formula(formula):
     
     return reordered_formula, sorted_elements
 
+ def rearrange_formula(formula):
+        pattern = r'([A-Z][a-z]*)(\d*)'
+        elements = re.findall(pattern, formula)
+        
+        #elements.sort(key=lambda x: (-element_data.get(x[0], float('-inf')), -int(x[1]) if x[1] else -1)) if you want to sort from the most to the least 
+        elements.sort(key=lambda x: (element_data.get(x[0], float('inf')), int(x[1]) if x[1] else 1))
+        
+        rearranged_formula = ''.join([element + index for element, index in elements])
+        
+        return rearranged_formula
+    
+    df['formula'] = df['formula'].apply(rearrange_formula)
+    
+    output_data[sheet_name] = df
+
 # Read Excel file
 input_file = "formulae.xlsx"  # Change this to your input file name
 output_file = "output_largest_smallest_final.xlsx"  # Change this to your desired output file name
+
+element_properties_file = 'element_properties_for_ML.xlsx'
+element_properties_df = pd.read_excel(element_properties_file)
+
+sorting_column_number = 6 
 
 df = pd.read_excel(input_file)
 
